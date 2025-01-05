@@ -212,46 +212,95 @@ def save():
     g_pass=0000
 # ---------------------------- UI SETUP ------------------------------- #
 
-window=Tk()
-window.config( padx=40, pady=40, bg="gray")
-# window.configure(width=240,  height=240)
 
-""" creating the GUI window components. """
-                                                                                                                                                                                                                               
-image_name=PhotoImage(file="/Users/raman/Documents/python program/pythonProject/File_handling/Basic/29 passwordsaver/logo.png")
-canvas=Canvas( height=200, width=240, bg="gray", highlightthickness=0)
-canvas.create_image( 120, 120, image=image_name)
-canvas.grid(column=1, row=0)
+window = Tk()
+window.title("Password Saver")
+window.config(padx=20, pady=20, bg="lightblue")
 
-website_label=Label(text="WebSite :", width=20)
-website_label.grid(column=0, row=1)
+# Canvas for logo
+image_name = PhotoImage(file="/Users/raman/Documents/python program/pythonProject/File_handling/Basic/29 passwordsaver/logo.png")
+canvas = Canvas(height=200, width=240, bg="lightblue", highlightthickness=0)
+canvas.create_image(120, 120, image=image_name)
+canvas.grid(column=1, row=0, pady=10)
 
-user_email_label=Label(text="Email/ User name :"  , width=20 ,  highlightthickness=1, fg="black" )
-user_email_label.grid(column=0, row=2)
+# Labels
+website_label = Label(text="Website:", width=20, anchor="e", bg="lightblue", fg="black", font=("Arial", 12))
+website_label.grid(column=0, row=1, padx=5, pady=5)
 
-pass_label=Label(text="Password :", width=20)
-pass_label.grid(column=0, row=3)
+user_email_label = Label(text="Email/User Name:", width=20, anchor="e", bg="lightblue", fg="black", font=("Arial", 12))
+user_email_label.grid(column=0, row=2, padx=5, pady=5)
 
-web_entry=Entry(width=47)
+pass_label = Label(text="Password:", width=20, anchor="e", bg="lightblue", fg="black", font=("Arial", 12))
+pass_label.grid(column=0, row=3, padx=5, pady=5)
+
+# Entries
+web_entry = Entry(width=35)
 web_entry.focus()
-web_entry.grid(column=1, row=1, columnspan=2)
+web_entry.grid(column=1, row=1, columnspan=2, sticky="ew", padx=5, pady=5)
 
-user_email_entry=Entry(width=45)
-user_email_entry.grid(column=1, row=2, columnspan=2, sticky="ew")
+user_email_entry = Entry(width=35)
+user_email_entry.grid(column=1, row=2, columnspan=2, sticky="ew", padx=5, pady=5)
 user_email_entry.insert(0, string="ramanred@gmail.com")
 
-search_button=Button(text="Search", command=search, width= 6)
-search_button.grid(column=2, row=1, columnspan=1)
+pass_entry = Entry(width=35, show="*")
+pass_entry.grid(column=1, row=3, columnspan=2, sticky="ew", padx=5, pady=5)
 
-pass_entry=Entry(width=48, textvariable=" enter your password", show="*")
-pass_entry.grid(column=1, row=3, columnspan=2)
+# Buttons
+search_button = Button(text="Search", command=lambda: print("Search clicked"), width=10, bg="gray", fg="white", font=("Arial", 10))
+search_button.grid(column=2, row=1, sticky="e", padx=5)
 
-generate_button=Button(text="generate password", command=passgenerator)
-generate_button.grid(column=2, row=3, sticky="ew")
+generate_button = Button(text="Generate Password", command=lambda: print("Generate clicked"), bg="gray", fg="white", font=("Arial", 10))
+generate_button.grid(column=2, row=3, sticky="ew", padx=5)
 
-add_button=Button( text="ADD", width=38, command=save)
-add_button.grid(column=1, row=4, columnspan=2, sticky="ew")
+add_button = Button(text="ADD", width=35, command=lambda: print("Add clicked"), bg="green", fg="white", font=("Arial", 12, "bold"))
+add_button.grid(column=1, row=4, columnspan=2, pady=10)
 
-#mainloop to main the GUI window. 
-
+# Run the application
 window.mainloop()
+
+
+
+
+# window=Tk()
+# window.config( padx=40, pady=40, bg="gray")
+# # window.configure(width=240,  height=240)
+
+# """ creating the GUI window components. """
+                                                                                                                                                                                                                               
+# image_name=PhotoImage(file="/Users/raman/Documents/python program/pythonProject/File_handling/Basic/29 passwordsaver/logo.png")
+# canvas=Canvas( height=200, width=240, bg="gray", highlightthickness=0)
+# canvas.create_image( 120, 120, image=image_name)
+# canvas.grid(column=1, row=0)
+
+# website_label=Label(text="WebSite :", width=20)
+# website_label.grid(column=0, row=1)
+
+# user_email_label=Label(text="Email/ User name :"  , width=20 ,  highlightthickness=1, fg="black" )
+# user_email_label.grid(column=0, row=2)
+
+# pass_label=Label(text="Password :", width=20)
+# pass_label.grid(column=0, row=3)
+
+# web_entry=Entry(width=47)
+# web_entry.focus()
+# web_entry.grid(column=1, row=1, columnspan=2)
+
+# user_email_entry=Entry(width=45)
+# user_email_entry.grid(column=1, row=2, columnspan=2, sticky="ew")
+# user_email_entry.insert(0, string="ramanred@gmail.com")
+
+# search_button=Button(text="Search", command=search, width= 6)
+# search_button.grid(column=2, row=1, columnspan=1)
+
+# pass_entry=Entry(width=48, textvariable=" enter your password", show="*")
+# pass_entry.grid(column=1, row=3, columnspan=2)
+
+# generate_button=Button(text="generate password", command=passgenerator)
+# generate_button.grid(column=2, row=3, sticky="ew")
+
+# add_button=Button( text="ADD", width=38, command=save)
+# add_button.grid(column=1, row=4, columnspan=2, sticky="ew")
+
+# #mainloop to main the GUI window. 
+
+# window.mainloop()
